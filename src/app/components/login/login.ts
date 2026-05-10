@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormsModule, NgForm, NgModel} from '@angular/forms';
-import { Router, RouterLink } from "@angular/router";
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +8,17 @@ import { Router, RouterLink } from "@angular/router";
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class Login implements OnInit{
-
-  private router = inject(Router)
+export class Login implements OnInit {
+  private router = inject(Router);
 
   ngOnInit(): void {
-    if(localStorage.getItem("user")){
-      this.router.navigate(["/welcome"])
+    if (localStorage.getItem('user')) {
+      this.router.navigate(['/home']);
     }
   }
 
-  ValidateCredentials(form:NgForm,email:NgModel,password:NgModel){
-    localStorage.setItem("user",email.value)
-    this.router.navigate(["/welcome"])
+  ValidateCredentials(form: NgForm, email: NgModel, password: NgModel) {
+    localStorage.setItem('user', email.value);
+    this.router.navigate(['/home']);
   }
-  
 }

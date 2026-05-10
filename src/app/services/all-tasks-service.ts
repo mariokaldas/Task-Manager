@@ -45,13 +45,15 @@ export class AllTasksService {
   addTask(task: ItaskData) {
     this.allTasks.update((tasks) => [...tasks, task]);
     this.apiService.addTask(task).subscribe({
-      next: () => {
+      next: (createdTask: any) => {
+        this.allTasks.update((tasks) => tasks.map((t) => (t.id === task.id ? createdTask : t)));
         this.notificationService.generateNotification(
           notificationCat.SUCCESS,
           'Task added successfully.',
         );
       },
       error: (err) => {
+        this.allTasks.update((tasks) => tasks.filter((t) => t.id !== task.id));
         this.notificationService.generateNotification(notificationCat.ERROR, 'Failed to add task');
         console.log('ERROR', err);
       },
@@ -77,6 +79,7 @@ export class AllTasksService {
   }
 
   editTask(task: ItaskData) {
+      this.allTasks.update((tasks) => tasks.map((t) => (t.id === task.id ? task : t)));
       this.apiService.editTask(task).subscribe({
       next: () => {
         this.notificationService.generateNotification(

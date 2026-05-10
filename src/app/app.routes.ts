@@ -22,7 +22,7 @@ export const routes: Routes = [
     component: SignUp,
   },
   {
-    path: 'welcome',
+    path: '',
     component: Main,
     canActivateChild: [authenticationGuard],
     children: [
@@ -36,38 +36,38 @@ export const routes: Routes = [
         component: Home,
       },
       {
-        path:"addtask",
-        loadComponent: () => import("./components/TaskInput/taskInput")
+        path: 'addtask',
+        loadComponent: () => import('./components/TaskInput/taskInput'),
       },
       {
-        path:"tasks",
-        children:[
+        path: 'tasks',
+        children: [
           {
-            path:"all",
-            component:TaskList,
-            data:{filter:"all"}
+            path: 'all',
+            component: TaskList,
+            data: { filter: 'all' },
           },
           {
-            path:"done",
-            component:TaskList,
-            data:{filter:"done"}
+            path: 'done',
+            component: TaskList,
+            data: { filter: 'done' },
           },
           {
-            path:"todo",
-            component:TaskList,
-            data:{filter:"todo"}
+            path: 'todo',
+            component: TaskList,
+            data: { filter: 'todo' },
           },
           {
-            path:'',
-            redirectTo:"all",
-            pathMatch:"full"
-          }
-        ]
+            path: '',
+            redirectTo: 'all',
+            pathMatch: 'full',
+          },
+        ],
       },
       {
-        path:"aboutus",
-        component: About
-      }
+        path: 'aboutus',
+        component: About,
+      },
     ],
   },
 ];
