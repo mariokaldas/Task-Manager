@@ -1,0 +1,16 @@
+.navbar {
+  background-color: rgba(12, 10, 9, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #2e2e2e;
+}
+.nav-link {
+  color: #a8a29e !important;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: #e7e5e4 !important;
+}
+.nav-link.active {
+  color: var(--primary-orange) !important;
+  border-bottom: 2px solid var(--primary-orange);
+}

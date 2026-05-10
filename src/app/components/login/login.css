@@ -1,0 +1,110 @@
+
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--on-background);
+  font-family: 'Manrope', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background-color: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Background Glow */
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 182, 142, 0.1) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.header-icon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--surface-container-high);
+  border: 1px solid rgba(85, 67, 57, 0.3);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  color: var(--on-background);
+  font-weight: 500;
+}
+
+.input-group-text {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+}
+
+.form-control {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-background);
+  padding: 0.75rem;
+}
+
+.form-control:focus {
+  background-color: var(--bg-dark);
+  border-color: var(--primary-theme-buttons);
+  color: var(--on-background);
+  box-shadow: 0 0 0 1px var(--primary-theme-buttons);
+}
+
+.btn-primary-theme {
+  background-color: var(--primary-theme-buttons);
+  color: var(--on-primary);
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem;
+  transition: all 0.2s;
+}
+
+.btn-primary-theme:hover {
+  background-color: #ffab7a;
+  transform: scale(0.98);
+}
+
+.link-theme {
+  color: var(--primary-theme-buttons);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.link-theme:hover {
+  color: #ffab7a;
+  text-decoration: underline;
+}
+
+.divider {
+  border-top: 1px solid rgba(85, 67, 57, 0.3);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+input::placeholder{
+    color: #ece0d6;
+    opacity: 0.3;
+}

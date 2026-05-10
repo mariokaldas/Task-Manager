@@ -1,0 +1,71 @@
+/* Ambient Glow Background */
+.ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 182, 142, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Form Styling */
+.form-card {
+  background-color: var(--surface-container);
+  border: 1px solid rgba(85, 67, 57, 0.3);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.form-label {
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  margin-bottom: 0.5rem;
+}
+.form-control,
+.form-select {
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-background);
+  padding: 0.75rem 1rem;
+}
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--surface-container-low);
+  border-color: var(--primary-theme-buttons);
+  color: var(--on-background);
+  box-shadow: 0 0 0 1px var(--primary-theme-buttons);
+}
+.form-control::placeholder {
+  color: rgba(219, 193, 181, 0.4);
+}
+
+/* Segmented Radio Buttons (Priority) */
+.btn-check:checked + .btn-outline-priority {
+  background-color: var(--surface-container-low);
+  border-color: var(--primary-theme-buttons);
+  color: var(--primary-theme-buttons);
+}
+.btn-outline-priority {
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  width: 100%;
+}
+
+/* Main Buttons */
+.btn-save {
+  background-color: var(--primary-theme-buttons);
+  color: var(--on-primary);
+  font-weight: 600;
+}
+.btn-save:hover {
+  background-color: #ffab7a;
+  color: var(--on-primary);
+}
+.btn-cancel {
+  border: 1px solid var(--outline-variant);
+  color: var(--primary-theme-buttons);
+}

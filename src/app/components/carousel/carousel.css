@@ -1,0 +1,11 @@
+/* Carousel Customization */
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .carousel-item img {
+    height: 600px;
+  }
+}

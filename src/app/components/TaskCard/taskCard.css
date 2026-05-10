@@ -1,0 +1,142 @@
+.task-card {
+  background-color: var(--surface-container-low);
+  border: 1px solid rgba(85, 67, 57, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  color: var(--on-background);
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-done {
+  background-color: var(--surface-container-highest);
+  color: var(--on-background);
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.btn-done:hover {
+  background-color: var(--surface-container-high);
+}
+
+/* Modal Styles */
+.modal-content {
+  background-color: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.modal-title {
+  color: var(--on-background);
+  font-weight: 600;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--outline-variant);
+}
+
+.modal-footer .btn-close-modal {
+  background-color: var(--surface-container-high);
+  color: var(--on-background);
+  border: 1px solid var(--outline-variant);
+}
+
+.modal-footer .btn-save-modal {
+  background-color: var(--primary-theme-buttons);
+  color: var(--on-primary);
+  font-weight: 600;
+}
+
+/* Form Label */
+.form-label-modal {
+  color: var(--on-background);
+  font-weight: 500;
+}
+
+/* Input Group Text */
+.input-group-text-modal {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+}
+
+/* Form Control */
+.form-control-modal {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-background);
+}
+
+/* Form Select */
+.form-select-modal {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-background);
+}
+
+/* Task Card Badge */
+.task-card-category-badge {
+  background: rgba(217, 119, 58, 0.2);
+  color: #d9773a;
+}
+
+/* Priority Text */
+.task-card-priority {
+  color: var(--error);
+}
+
+/* Description Text */
+.task-card-description {
+  color: var(--on-surface-variant);
+}
+
+/* Date Text */
+.task-card-date {
+  color: var(--on-surface-variant);
+}
+
+/* Edit Button */
+.btn-edit-task {
+  color: var(--on-surface-variant);
+}
+
+/* Delete Button */
+.btn-delete-task {
+  color: var(--error);
+}
+
+/* Date Input */
+.input-date-modal {
+  color-scheme: dark;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-background);
+}
+
+/* Form Select */
+.form-select-modal {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-background);
+}
+
+input::placeholder {
+  color: #ece0d6;
+  opacity: 0.3;
+}

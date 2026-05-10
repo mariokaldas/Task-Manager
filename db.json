@@ -1,0 +1,32 @@
+{
+  "tasks": [
+    {
+      "dueDate": "2026-05-02",
+      "title": "task1",
+      "description": "task1 desc",
+      "category": "Study",
+      "priority": 1,
+      "id": "BIRzauhhc1g",
+      "isCompleted": true
+    },
+    {
+      "dueDate": "2026-05-09",
+      "title": "task8",
+      "description": "task8 desc",
+      "category": "Personal",
+      "priority": 2,
+      "id": "VYx0vHz4oEY",
+      "isCompleted": false
+    },
+    {
+      "dueDate": "2026-04-28",
+      "title": "task10",
+      "description": "task10 desc",
+      "category": "Work",
+      "priority": 0,
+      "id": "Y_VwX0ZbjS8",
+      "isCompleted": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

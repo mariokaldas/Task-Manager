@@ -1,0 +1,47 @@
+/* Hero Image Mix-blend */
+.hero-img-container {
+  height: 400px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: var(--surface-container-high);
+  position: relative;
+}
+.hero-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  mix-blend-mode: luminosity;
+}
+
+/* Bento Cards Custom Styling */
+.bento-card {
+  background-color: var(--surface-container);
+  border: 1px solid rgba(85, 67, 57, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.bento-card.high {
+  background-color: var(--surface-container-high);
+}
+.bento-card.low {
+  background-color: var(--surface-container-low);
+}
+
+.philosophy-border {
+  border-left: 4px solid var(--primary-orange);
+  padding-left: 1.5rem;
+}
+
+.text-primary-theme {
+  color: var(--primary-orange);
+}
+.text-variant {
+  color: var(--on-surface-variant);
+}

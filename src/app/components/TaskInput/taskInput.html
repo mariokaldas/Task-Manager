@@ -1,0 +1,107 @@
+<main class="flex-grow-1 d-flex align-items-center py-5">
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-7">
+
+                <header class="text-center text-md-start mb-4">
+                    <h1 class="display-6 fw-bold mb-2">Create New Task</h1>
+                    <p class="text-secondary">Define your objective to maintain your flow.</p>
+                </header>
+
+                <div class="form-card p-4 p-md-5">
+                    <form [formGroup]="addTaskForm">
+                        <div class="mb-4">
+                            <label for="task-title" class="form-label">Title</label>
+                            <input name="title" type="text" class="form-control" id="task-title"
+                                placeholder="What needs to be done?" formControlName="title">
+                        </div>
+                        @if(title?.invalid && (title?.dirty || title?.touched)){
+                        @if(title?.hasError("required")){
+                        <p class="text-danger">Title is required.</p>
+                        }
+                        }
+
+                        <div class="mb-4">
+                            <label for="task-description" class="form-label">Description</label>
+                            <textarea name="description" class="form-control" id="task-desc" rows="4"
+                                placeholder="Add context, links, or notes..." formControlName="description"></textarea>
+                        </div>
+                        @if(desc?.invalid && (desc?.dirty || desc?.touched)){
+                        @if(desc?.hasError("required")){
+                        <p class="text-danger">Description is required.</p>
+                        }
+                        }
+
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <label for="task-date" class="form-label">Due Date</label>
+                                <input name="dueDate" type="date" class="form-control" id="task-date"
+                                    style="color-scheme: dark;" formControlName="dueDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="task-category" class="form-label">Category</label>
+                                <select name="category" class="form-select" id="task-category"
+                                    formControlName="category">
+                                    <option value="Work">Work</option>
+                                    <option value="Study">Study</option>
+                                    <option value="Personal">Personal</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                @if(dueDate?.invalid && (dueDate?.dirty || dueDate?.touched)){
+                                @if(dueDate?.hasError("required")){
+                                <p class="text-danger">Due date is required.</p>
+                                }
+                                @else if (dueDate?.hasError("dateIsPassed")) {
+                                <p class="text-danger">Date is already passed.</p>
+                                }
+                                }
+
+                            </div>
+                            <div class="col-6">
+                                @if(cat?.invalid && (cat?.dirty || cat?.touched)){
+                                @if(cat?.hasError("required")){
+                                <p class="text-danger">Category is required.</p>
+                                }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label d-block mb-3">Priority</label>
+                            <div class="row g-2">
+                                <div class="col">
+                                    <input type="radio" class="btn-check" name="priority" id="low" autocomplete="off"
+                                        [value]="priority.Low" formControlName="priority">
+                                    <label class="btn btn-outline-priority py-2" for="low">Low</label>
+                                </div>
+                                <div class="col">
+                                    <input type="radio" class="btn-check" name="priority" id="medium" autocomplete="off"
+                                        [value]="priority.Medium" formControlName="priority" checked>
+                                    <label class="btn btn-outline-priority py-2" for="medium">Medium</label>
+                                </div>
+                                <div class="col">
+                                    <input type="radio" class="btn-check" name="priority" id="high" autocomplete="off"
+                                        [value]="priority.High" formControlName="priority">
+                                    <label class="btn btn-outline-priority py-2" for="high">High</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4 opacity-25">
+
+                        <div class="d-flex flex-column-reverse flex-md-row justify-content-end gap-3">
+                            <button type="button" class="btn btn-cancel px-4 py-2">Cancel</button>
+                            <button type="submit" class="btn btn-save px-4 py-2" (click)="sendTask(addTaskForm)"
+                                [disabled]="addTaskForm.invalid">Save Task</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

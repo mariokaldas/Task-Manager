@@ -1,0 +1,42 @@
+main {
+  margin-top: 50px;
+  min-height: 100vh;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid var(--surface-container-highest);
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  color: var(--on-surface-variant);
+  padding: 0.75rem 1rem;
+  background: none;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary-theme);
+  border-bottom: 2px solid var(--primary-theme);
+}
+
+.btn-outline-custom {
+  background-color: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-background);
+  font-size: 0.875rem;
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--surface-container-high);
+  color: var(--on-background);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.taskcard {
+  border-radius: 1rem;
+  min-width: 400px;
+}

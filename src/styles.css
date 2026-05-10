@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+:root {
+  --bg-dark: #18120d;
+  --on-background: #ece0d6;
+  --primary-theme: #ffb68e;
+  --primary-theme-buttons: #d9773a;
+  --on-primary: #542200;
+  --surface-container: #241f18;
+  --surface-container-high: #2f2922;
+  --outline-variant: #554339;
+  --on-surface-variant: #dbc1b5;
+
+  --bg-background: #18120d;
+  --primary-container: #d9773a;
+  --on-primary-container: #491c00;
+  --surface-container-low: #201b14;
+  --surface-card: #241f18;
+  --primary-orange: #ffb68e;
+  --surface-container-highest: #3a342d;
+  --on-surface: #ece0d6;
+  --error: #ffb4ab;
+}

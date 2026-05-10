@@ -1,0 +1,94 @@
+<body>
+
+    <main class="container d-flex justify-content-center">
+        <div class="login-card">
+            <div class="text-center d-flex flex-column align-items-center mb-3 position-relative" style="z-index: 1;">
+                <div class="header-icon">
+                    <span class="material-symbols-outlined text-primary-theme" style="font-size: 28px;">task_alt</span>
+                </div>
+                <h1 class="h4 fw-bold mb-0" style="font-family: 'Public Sans', sans-serif;">Create Account</h1>
+                <p class="small text-secondary mt-1 mb-0">Join TaskFlow to master your focus.</p>
+            </div>
+
+            <form [formGroup]="signupForm" class="position-relative" style="z-index: 1;" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="name" class="form-label">Full Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><span class="material-symbols-outlined fs-5">person</span></span>
+                        <input type="text" class="form-control" id="name" placeholder="Mario Kaldas"
+                            formControlName="fullName">
+                    </div>
+                    @if(fullName?.invalid && (fullName?.dirty || fullName?.touched)){
+                    @if(fullName?.hasError("required")){
+                    <p class="text-danger">Full name is required.</p>
+                    }
+                    @else if(fullName?.hasError("minlength")){
+                    <p class="text-danger">Full name must be at least 4 characters long.</p>
+                    }
+                    }
+                </div>
+
+                <div class="mb-2">
+                    <label for="email" class="form-label">Email Address</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><span class="material-symbols-outlined fs-5">mail</span></span>
+                        <input type="email" class="form-control" id="email" placeholder="mario@example.com"
+                            formControlName="email">
+                    </div>
+                    @if(email?.invalid && (email?.dirty || email?.touched)){
+                    @if(email?.hasError("required")){
+                    <p class="text-danger">Email is required.</p>
+                    }
+                    @else if(email?.hasError("pattern")){
+                    <p class="text-danger">Email is invalid.</p>
+                    }
+                    }
+                </div>
+
+                <div class="mb-2">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><span class="material-symbols-outlined fs-5">lock</span></span>
+                        <input type="password" class="form-control" id="password" placeholder="••••••••"
+                            formControlName="password">
+                    </div>
+                    @if(password?.invalid && (password?.dirty || password?.touched)){
+                    @if(password?.hasError("required")){
+                    <p class="text-danger">Password is required.</p>
+                    }
+                    @else if(password?.hasError("minlength")){
+                    <p class="text-danger">Password must be at least 8 characters long.</p>
+                    }
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><span class="material-symbols-outlined fs-5">lock</span></span>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••"
+                            formControlName="confirmPassword">
+                    </div>
+                    @if((confirmPassword?.touched || confirmPassword?.dirty) &&
+                    signupForm.hasError("unmatchedPasswords")){
+                    <p class="text-danger">Two passwords must match.</p>
+                    }
+                </div>
+
+                <button type="submit"
+                    class="btn btn-primary-theme w-100 d-flex align-items-center justify-content-center gap-2"
+                    [disabled]="signupForm.invalid">
+                    Create Account
+                    <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+                </button>
+            </form>
+
+            <div class="divider text-center position-relative" style="z-index: 1;">
+                <p class="small text-secondary mb-0">
+                    Already have an account?
+                    <a routerLink="/login" class="link-theme fw-bold ms-1">Log in</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>

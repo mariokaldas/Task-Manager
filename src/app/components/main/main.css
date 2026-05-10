@@ -1,0 +1,8 @@
+body {
+  background-color: var(--bg-dark);
+  color: var(--on-background);
+  font-family: 'Manrope', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

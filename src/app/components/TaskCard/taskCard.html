@@ -1,0 +1,103 @@
+<div class="task-card">
+  <div class="d-flex justify-content-between align-items-start mb-3">
+    <span class="badge rounded-pill task-card-category-badge">{{card.category}}</span>
+    <span class="d-flex align-items-center gap-1 small fw-bold task-card-priority">
+      <span class="material-symbols-outlined fs-6">priority_high</span>{{priorityType[card.priority]}}
+    </span>
+  </div>
+
+  <h3 class="h5 fw-bold mb-1">{{card.title}}</h3>
+  <p class="small mb-4 task-card-description">{{card.description}}</p>
+
+  <div class="d-flex align-items-center gap-1 small mb-3 task-card-date">
+    <span class="material-symbols-outlined fs-6">event</span> {{card.dueDate}}
+  </div>
+
+  <div class="d-flex gap-2 border-top pt-3">
+    <button class="btn btn-done flex-grow-1 d-flex align-items-center justify-content-center gap-1"
+      (click)="updateStatus()">
+      <span class="material-symbols-outlined fs-6">check_circle</span> {{card.isCompleted?"Restore":"Done"}}
+    </button>
+    <button class="btn btn-link text-decoration-none p-2 btn-edit-task" data-bs-toggle="modal"
+      [attr.data-bs-target]="'#exampleModal-' + card.id" (click)="loadCurrentCard()"><span
+        class="material-symbols-outlined">edit</span></button>
+    <button class="btn btn-link text-decoration-none p-2 btn-delete-task" (click)="deleteTask()"><span
+        class="material-symbols-outlined">delete</span></button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" [id]="'exampleModal-' + card.id" tabindex="-1" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-4">
+            <label for="edit-title" class="form-label form-label-modal">Title</label>
+            <div class="input-group">
+              <span class="input-group-text input-group-text-modal"><span
+                  class="material-symbols-outlined fs-5">task_alt</span></span>
+              <input type="text" class="form-control form-control-modal" id="edit-title" placeholder="Task Title"
+                name="title" [(ngModel)]="editCard.title">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="edit-description" class="form-label form-label-modal">Description</label>
+            <div class="input-group">
+              <span class="input-group-text input-group-text-modal"><span
+                  class="material-symbols-outlined fs-5">description</span></span>
+              <input type="text" class="form-control form-control-modal" id="edit-description" placeholder="Description"
+                name="description" [(ngModel)]="editCard.description">
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <label for="edit-priority" class="form-label form-label-modal">Priority</label>
+              <select class="form-select form-select-modal" id="edit-priority" name="priority"
+                [(ngModel)]="editCard.priority">
+                <option selected hidden>Select Priority</option>
+                <option [value]="priorityType.High">High</option>
+                <option [value]="priorityType.Medium">Medium</option>
+                <option [value]="priorityType.Low">Low</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="edit-category" class="form-label form-label-modal">Category</label>
+              <select class="form-select form-select-modal" id="edit-category" name="category"
+                [(ngModel)]="editCard.category">
+                <option selected hidden>Select Category</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+                <option value="Study">Study</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="edit-duedate" class="form-label form-label-modal">Due Date</label>
+            <div class="input-group">
+              <span class="input-group-text input-group-text-modal"><span
+                  class="material-symbols-outlined fs-5">event</span></span>
+              <input type="date" class="form-control form-control-modal input-date-modal" id="edit-duedate"
+                [formControl]="dueDate">
+            </div>
+            @if(dueDate.invalid){
+            <p class="text-danger">Date is already passed.</p>
+            }
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-close-modal" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save-modal" data-bs-dismiss="modal" [disabled]="dueDate.invalid"
+          (click)="editTask()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
